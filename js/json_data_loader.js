@@ -29,7 +29,6 @@ let loadJsonData = () => {
 		jsonObject['gallery_data'].push(secondItem);
 		jsonObject['gallery_data'].push(thirdItem);
 		localStorage.setItem("galleryData", JSON.stringify(jsonObject));
-		return;
 	}
 
 	let item = localStorage.getItem("galleryData");
