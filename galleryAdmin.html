@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <title>Gallery Admin</title>
+  </head>
+  <body onload="loadJsonData()">
+
+    <div class="container">
+      <center><h4 style="margin-top: 3px; color: #131a20; font-family: system-ui; font-weight: normal;"> Gallery Admin Panel </h4>
+        <hr/></center>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="homepage.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+      </nav>
+    </div>
+    <div class="container" id="My-Gallery">
+      
+    </div>
+    <div style="position: fixed; right: 0; bottom: 0; margin-bottom: 30px; margin-right: 20px">
+      <a href="add_new.html">
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+        <i class="material-icons">+</i>
+      </button>
+    </a>
+    </div>
+    <script type="text/javascript">
+      $('#My-Gallery card-img-top').click(function(){
+        
+      });
+
+
+      $(document).on('click', '.card', function(){
+        //your code
+          var row = parseInt( $(this).parent().parent().index());
+          var col = parseInt( $(this).parent().index());   
+          //alert('Row: ' + row + ', Column: ' + col);
+          setData(col, row);
+          location.href='edit.html';
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/json_data_loader.js"></script>
+    
+  </body>
+</html>

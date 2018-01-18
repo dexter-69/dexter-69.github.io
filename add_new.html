@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+
+   </head>
+  <body>
+  	<div class="container">
+  	  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+  	      <ul class="nav navbar-nav">
+  	        <li class="nav-item">
+  	          <a class="nav-link" href="homepage.html" style="text-decoration: none">Home</a>
+  	        </li>
+  	      </ul>
+  	  </nav>
+  	</div>
+  	<center>
+  		<h4> Add new Image </h4>
+  		<hr/>
+	  	<div>
+		    <form action="galleryAdmin.html" onsubmit="return addNewImage()">
+		      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		        <input class="mdl-textfield__input" type="text" id="imageName">
+		        <label class="mdl-textfield__label" for="sample1">Name</label>
+		      </div><br/>
+		      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		        <input class="mdl-textfield__input" type="text" id="imageUrl">
+		        <label class="mdl-textfield__label" for="sample1">Source Url</label>
+		      </div>
+		      <br/>
+		      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		        <input class="mdl-textfield__input" type="text" id="imageInfo">
+		        <label class="mdl-textfield__label" for="sample1">Information</label>
+		      </div>
+		      <br/>
+		      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		        <input class="mdl-textfield__input" type="text" id="imageUploadeDate">
+		        <label class="mdl-textfield__label" for="sample1">Date</label>
+		      </div>
+		      <br/>
+		      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color: #4bb543; margin-right: 20px;">Save</button>
+		      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--danger" onclick="window.history.go(-1); return false;" style="background-color: #ed5249; color: white">Cancel</button>
+		    </form>
+	    </div>
+    </center>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script type="text/javascript" src="js/json_data_loader.js"></script>
+
+  </body>
+</html>
