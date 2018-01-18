@@ -19,16 +19,18 @@ let loadGallery = (galleryDataArray) => {
 let loadJsonData = () => {
 	//Initialise sample data
 
-	/*
-	let jsonObject = JSON.parse('{"gallery_data":[]}');
-	let firstItem = {"name" : "Sample 1","url" : "http://www.gstatic.com/webp/gallery/1.webp","info" : "Some Information about the image","uploaded_date": "15/01/2018"};
-	let secondItem = {"name" : "Sample 2","url" : "http://www.gstatic.com/webp/gallery/2.webp","info" : "Some Information about the image","uploaded_date": "15/01/2018"};
-	let thirdItem = {"name" : "Sample 3","url" : "http://www.gstatic.com/webp/gallery/4.webp","info" : "Some Information about the image","uploaded_date": "15/01/2018"};
-	jsonObject['gallery_data'].push(firstItem);
-	jsonObject['gallery_data'].push(secondItem);
-	jsonObject['gallery_data'].push(thirdItem);
-	localStorage.setItem("galleryData", JSON.stringify(jsonObject));
-	*/
+	let newItem = localStorage.getItem("galleryData");
+	if(null == newItem) {
+		let jsonObject = JSON.parse('{"gallery_data":[]}');
+		let firstItem = {"name" : "Sample 1","url" : "http://www.gstatic.com/webp/gallery/1.webp","info" : "Some Information about the image","uploaded_date": "15/01/2018"};
+		let secondItem = {"name" : "Sample 2","url" : "http://www.gstatic.com/webp/gallery/2.webp","info" : "Some Information about the image","uploaded_date": "15/01/2018"};
+		let thirdItem = {"name" : "Sample 3","url" : "http://www.gstatic.com/webp/gallery/4.webp","info" : "Some Information about the image","uploaded_date": "15/01/2018"};
+		jsonObject['gallery_data'].push(firstItem);
+		jsonObject['gallery_data'].push(secondItem);
+		jsonObject['gallery_data'].push(thirdItem);
+		localStorage.setItem("galleryData", JSON.stringify(jsonObject));
+		return;
+	}
 
 	let item = localStorage.getItem("galleryData");
 	let jsonObject = JSON.parse(item);
