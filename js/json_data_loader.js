@@ -174,3 +174,26 @@ function deleteCard() {
 	console.log(galleryDataArray);
 	localStorage.setItem("galleryData", JSON.stringify(jsonObject));
 }
+
+function validateContactForm() {
+	let name = document.getElementById("sender_name").value;
+	let email = document.getElementById("sender_email").value;
+	let message = document.getElementById("sender_message").value;
+	let nameRegex = /^[A-Za-z0-9 ]{3,20}$/;;
+	let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	let errors = [];
+	if(isEmpty(name) ||  onlySpaces(name) || !nameRegex.test(name)) {
+		errors[errors.length] = "Please Enter Valid Name no special characters(min - 3 & max - 20)";
+	}
+	if(!emailRegex.test(email)) {
+		errors[errors.length] = "Please Enter Valid Email";
+	}
+	if(isEmpty(message) || onlySpaces(message)) {
+		errors[errors.length] = "Please Enter some message";
+	}
+	if(errors.length > 0) {
+		reportErrors(errors);
+		return false;
+	}
+	return true;
+}
