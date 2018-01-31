@@ -1,7 +1,9 @@
 
 let loadGallery = (galleryDataArray) => {
 	let appendRow;
-	console.log(galleryDataArray.length);
+
+	//console.log(galleryDataArray.length);
+	
 	for(let i = 0; i < galleryDataArray.length; i++) {
 		let titleName = galleryDataArray[i].name;
 		let imageUrl = galleryDataArray[i].url;
@@ -10,25 +12,53 @@ let loadGallery = (galleryDataArray) => {
 		if(i == 0 || i % 3 == 0) {
 			appendRow = $("<div class='row' style='margin-top: 18px;'></div>").appendTo("#My-Gallery");
 		}
-		$("<div class='col-4'><div class='card' style='width: 18rem;'> <img class='card-img-top' src='" + imageUrl +"' alt='Card image cap'><div class='card-body' <h5 class='card-title'>" + titleName + "</h5><div></div></div>").appendTo(appendRow);
+		$("<div class='col-4'><div class='card' style='width: 18rem;' onclick='openThisCard(event)'> <img class='card-img-top' src='" + imageUrl +"' alt='Card image cap'><div class='card-body' <h5 class='card-title'>" + titleName + "</h5><div></div></div>").appendTo(appendRow);
 	}
+
+	
 }
 
 
+function loadSampleJSON(callback) {   
+
+    let xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'gallery_data_test.json', true); 
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+          }
+    };
+    xobj.send(null);  
+}
+
+function init() {
+ loadSampleJSON(function(response) {
+
+    let sampleJson = JSON.parse(response);
+    localStorage.setItem("galleryData", JSON.stringify(sampleJson));
+    console.log(sampleJson);
+ });
+}
 
 let loadJsonData = () => {
 	//Initialise sample data
-
 	let newItem = localStorage.getItem("galleryData");
+
 	if(null == newItem) {
-		let jsonObject = JSON.parse('{"gallery_data":[]}');
+
+		/*let jsonObject = JSON.parse('{"gallery_data":[]}');
 		let firstItem = {"name" : "Sample 1","url" : "http://www.gstatic.com/webp/gallery/1.webp","info" : "Some Information about the image","uploaded_date": "15/01/2018"};
 		let secondItem = {"name" : "Sample 2","url" : "http://www.gstatic.com/webp/gallery/2.webp","info" : "Some Information about the image","uploaded_date": "15/01/2018"};
 		let thirdItem = {"name" : "Sample 3","url" : "http://www.gstatic.com/webp/gallery/4.webp","info" : "Some Information about the image","uploaded_date": "15/01/2018"};
 		jsonObject['gallery_data'].push(firstItem);
 		jsonObject['gallery_data'].push(secondItem);
 		jsonObject['gallery_data'].push(thirdItem);
-		localStorage.setItem("galleryData", JSON.stringify(jsonObject));
+		localStorage.setItem("galleryData", JSON.stringify(jsonObject));*/
+
+		//call this to get data from json file
+		init();
 	}
 
 	let item = localStorage.getItem("galleryData");
